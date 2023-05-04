@@ -1,0 +1,53 @@
+table {
+    width: 100%;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 20%;
+}
+
+.th-center {
+    text-align: center;
+}
+
+.th-left {
+    text-align: left;
+}
+
+.th-right {
+    text-align: right;
+}
+
+.example-section {
+    margin: 12px 0;
+}
+
+.example-margin {
+    margin: 0 12px;
+}
+
+.save {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.save button {
+    // box-shadow: 0 -5px 3px -3px black, 0 5px 3px -3px black;
+    box-shadow: 0 7px 12px 1px #1f2c30;
+}
+
+ul {
+    list-style-type: none;
+    margin-top: 4px;
+}
+
+mat-spinner {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

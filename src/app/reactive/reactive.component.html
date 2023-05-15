@@ -1,0 +1,133 @@
+<!-- <form [formGroup]="form">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email"class="form-control"formControlName="Email"pattern="+\w@gmail.com"placeholder="Enter email"/>
+        <div class="alert alert-danger"*ngIf="emails?.invalid && emails?.touched">
+            <div class="alert alert-danger"*ngIf="emails?.errors?.['Ends']">
+                Gmail isn't Completed
+            </div>
+        </div>
+      <small class="text-danger"*ngIf="emails?.invalid && emails?.touched">
+      Gmail isn't touched or invalid
+    </small>
+</div>
+<div class="form-group">
+    <label for="exampleInputEmail1">Password address</label>
+    <input type="password"class="form-control"formControlName="Password"placeholder="Enter Password"/>
+    <div class="alert alert-danger"*ngIf="Passwords?.invalid && Passwords?.touched">
+        <div class="alert alert-danger"*ngIf="Passwords?.errors?.['PasswordKeyWords']">
+            Captial Charachters or specail charthters
+        </div>
+    </div>
+</div>
+</form>
+
+<button type="submit"class="btn btn-primary">Submit</button> -->
+<div class="container">
+    <form [formGroup]="UserInfo" (ngSubmit)="Submit()">
+        <div class="mb-3">
+            <label for="Name" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="Name" formControlName="FullName" placeholder="FullName" [class.is-invalid]="FullName?.invalid" />
+            <div class="alert alert-warning" [hidden]="FullName?.valid || FullName?.untouched">
+                <small *ngIf="FullName?.errors?.['required']">required</small>
+                <small *ngIf="FullName?.errors?.['pattern']">pattern</small>
+            </div>
+            <small class="text-danger"> </small>
+        </div>
+
+        <div class="mb-3">
+            <label for="Email" class="form-label">Email address</label>
+            <input type="text" class="form-control" id="Email" formControlName="Email" placeholder="Email" />
+            <small class="alert-warning btn-danger" *ngIf="EmailValid?.errors?.['EmailError']">EmailError</small
+      >
+      <!-- <button type="button" class="btn-dark" (click)="existEmailValitors()">
+        Click
+      </button> -->
+    </div>
+    <div formArrayName="MobilleNumber">
+      <div
+        class="mb-3 ms-3"
+        *ngFor="let PhoneNum of MobilleNumber?.controls; let i = index"
+      >
+        <label for="MobilleNumber{{ i + 1 }}" class="form-label"
+          >Mobille Number #{{ i + 1 }}</label
+        >
+        <input
+          type="text"
+          class="form-control"
+          id="MobilleNumber{{ i + 1 }}"
+          [formControlName]="i"
+          placeholder="Mobille Number"
+        />
+        <button
+          type="submit"
+          class="btn btn-primary"
+          [disabled]=""
+          (click)="add()"
+        >
+          add
+        </button>
+      </div>
+    </div>
+    <div class="mb-3" formGroupName="Address">
+      <div class="mb-3">
+        <label for="City" class="form-label">City</label>
+        <input
+          type="text"
+          class="form-control"
+          id="City"
+          formControlName="City"
+          placeholder="Mobille Number"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="PostalCode" class="form-label">PostalCode</label>
+        <input
+          type="text"
+          class="form-control"
+          id="PostalCode"
+          formControlName="PostalCode"
+          placeholder="PostalCode"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="Street" class="form-label">Street</label>
+        <input
+          type="text"
+          class="form-control"
+          id="Street"
+          formControlName="Street"
+          placeholder="Street"
+        />
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="Password" class="form-label">Password</label>
+      <input
+        type="text"
+        class="form-control"
+        id="Password"
+        formControlName="Password"
+        placeholder="Mobille Number"
+      />
+      <div class="alert alert-warning">
+            <small *ngIf="Password?.errors?.['required']"> must reuqired</small>
+            <small *ngIf="UserInfo.errors?.['UnMatchPassword']"> Password UnMatch</small>
+        </div>
+</div>
+<div class="mb-3">
+    <label for="ConfirmPassword" class="form-label">ConfirmPassword</label>
+    <input type="text" class="form-control" id="ConfirmPassword" formControlName="ConfirmPassword" placeholder="Email" />
+    <div class="alert alert-warning">
+        <small *ngIf="ConfirmPassword?.errors?.['required']"> must reuqired</small>
+        <small *ngIf="UserInfo?.errors?.['UnMatchPassword']"> Password UnMatch</small>
+    </div>
+</div>
+</form>
+<Div>
+    {{ UserInfo.value | json }}
+</Div>
+<button type="submit" [disabled]="UserInfo.invalid" class="col-4 r-5 btn btn-primary" (click)="Clicked()">
+    Submit
+  </button>
+</div>

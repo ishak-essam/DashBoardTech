@@ -3,17 +3,17 @@ import { CommonModule } from '@angular/common';
 
 import { DashboaedRoutingModule } from './dashboaed-routing.module';
 import { DashboaedComponent } from './dashboaed.component';
-import { HomePageComponent } from './home-page/home-page.component';
-import { StudentsComponent } from './students/students.component';
-import { DegreeOfStudentsComponent } from './degree-of-students/degree-of-students.component';
-import { InstructionalMaterialsComponent } from './instructional-materials/instructional-materials.component';
-import { LevelsComponent } from './levels/levels.component';
-import { LecturesComponent } from './lectures/lectures.component';
-import { ExamsComponent } from './exams/exams.component';
-import { RescheduleExamsComponent } from './reschedule-exams/reschedule-exams.component';
-import { ReopenLectureComponent } from './reopen-lecture/reopen-lecture.component';
-import { ReviewsComponent } from './reviews/reviews.component';
-import { SubscriptionsComponent } from './subscriptions/subscriptions.component';
+import { HomePageComponent } from './home-page/components/home-page.component';
+import { StudentsComponent } from './students/components/students.component';
+import { DegreeOfStudentsComponent } from './degree-of-students/components/degree-of-students.component';
+import { InstructionalMaterialsComponent } from './instructional-materials/components/instructional-materials.component';
+import { LevelsComponent } from './levels/components/levels.component';
+import { LecturesComponent } from './lectures/components/lectures.component';
+import { ExamsComponent } from './exams/components/exams.component';
+import { RescheduleExamsComponent } from './reschedule-exams/components/reschedule-exams.component';
+import { ReopenLectureComponent } from './reopen-lecture/components/reopen-lecture.component';
+import { ReviewsComponent } from './reviews/components/reviews.component';
+import { SubscriptionsComponent } from './subscriptions/components/subscriptions.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -55,7 +55,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     MatButtonModule,
     MatIconModule,
     MatProgressSpinnerModule,
+
   ],
   exports: [MatTableModule],
 })
-export class DashboaedModule {}
+export class DashboaedModule { }

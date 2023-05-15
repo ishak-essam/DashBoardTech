@@ -1,8 +1,9 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ServicetestService } from './servicetest.service';
+import { environment } from 'src/environments/environment.development';
 
 export interface UserData {
   id: string;
@@ -49,7 +50,7 @@ const NAMES: string[] = [
   templateUrl: './test.component.html',
   styleUrls: ['./test.component.scss'],
 })
-export class TestComponent {
+export class TestComponent implements OnInit {
   SelectALl!: boolean;
   displayedColumns: string[] = ['check', 'id', 'userId', 'title', 'body'];
   dataSource!: MatTableDataSource<UserData>;
@@ -66,6 +67,10 @@ export class TestComponent {
       this.dataSource.sort = this.sort;
     });
   }
+  url: string = environment.BaseUrl;
+  ngOnInit(): void {
+    console.log(this.url)
+  }
   changed(che: boolean, item: any) {
     item.check = !item.check;
   }
@@ -81,17 +86,24 @@ export class TestComponent {
     }
   }
   savechange() {
-    const btn = document.querySelector('.save button') ;
-    const spt = document.querySelector('mat-spinner') ;
+    const btn = document.querySelector('.save button');
+    const spt = document.querySelector('mat-spinner');
     (btn as HTMLElement).style.display = 'none';
     (spt as HTMLElement).style.display = 'flex';
 
     console.log(this.posts);
     setTimeout(() => {
       this.service.postData(this.posts);
-    (spt as HTMLElement).style.display = 'none';
-    (btn as HTMLElement).style.display = 'flex';
-
+      // try to put in api by httpclient in angular ?
+      this.service.postData(JSON.stringify(this.posts)).subscribe((response: any) => {
+        console.log('Data posted:', response);
+      }
+        , (error: any) => {
+          console.error('Error posting data:', error);
+        }
+      );
+      (spt as HTMLElement).style.display = 'none';
+      (btn as HTMLElement).style.display = 'flex';
     }, 3000);
   }
 }

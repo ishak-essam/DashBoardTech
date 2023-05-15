@@ -25,6 +25,5 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./reopen-lecture.component.scss'],
 })
 export class ReopenLectureComponent {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = ELEMENT_DATA;
 }

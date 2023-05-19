@@ -7,7 +7,7 @@ import { AuthService } from '../services/auth.service';
   providedIn: 'root',
 })
 export class TokenInterceptorService implements HttpInterceptor {
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) { }
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler
@@ -16,7 +16,7 @@ export class TokenInterceptorService implements HttpInterceptor {
     if (token) {
       request = request.clone({
         setHeaders: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${this.authService.userValue.token}`,
         },
       });
     }
@@ -25,7 +25,8 @@ export class TokenInterceptorService implements HttpInterceptor {
         if (err.status === 401) {
           this.authService.logout();
         }
-        const error = err.error.message || err.statusText;
+        const error = err || err.statusText;
+        console.log()
         return throwError(error);
       })
     );

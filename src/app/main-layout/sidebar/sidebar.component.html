@@ -1,66 +1,74 @@
 <mat-list>
-    <div mat-subheader>Menu</div>
-    <mat-list-item routerLink="Home">
-        <mat-icon matListItemIcon>home</mat-icon>
-        <div matListItemTitle>home</div>
-    </mat-list-item>
-    <mat-divider></mat-divider>
+  <div mat-subheader style="text-align: center;">القائمة</div>
+  <mat-list-item routerLink="home">
+    <mat-icon matListItemIcon>home</mat-icon>
+    <div matListItemTitle>الرئيسية</div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
 
-    <mat-list-item routerLink="Exams">
-        <mat-icon matListItemIcon>description</mat-icon>
-        <div matListItemTitle>Exams</div>
-    </mat-list-item>
-    <mat-divider></mat-divider>
+  <mat-list-item routerLink="students">
+    <mat-icon matListItemIcon> my_library_add </mat-icon>
+    <div matListItemTitle>الطلبة</div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
 
-    <mat-list-item routerLink="Degrees">
-        <mat-icon matListItemIcon>book</mat-icon>
-        <div matListItemTitle>degree</div>
-    </mat-list-item>
-    <mat-divider></mat-divider>
+  <mat-list-item routerLink="degrees">
+    <mat-icon matListItemIcon>book</mat-icon>
+    <div matListItemTitle>درجات الطلبة</div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
 
-    <mat-list-item routerLink="Lectures">
-        <mat-icon matListItemIcon>Extension Icon</mat-icon>
-        <div matListItemTitle>Lectures</div>
-    </mat-list-item>
-    <mat-divider></mat-divider>
+  <mat-list-item routerLink="exams">
+    <mat-icon matListItemIcon>description</mat-icon>
+    <div matListItemTitle>الامتحانات</div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item routerLink="rescheduleExams">
+    <mat-icon matListItemIcon>my_library_books</mat-icon>
+    <div matListItemTitle>طلب اعادة الامتحان </div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
 
-    <mat-list-item routerLink="Levels">
-        <mat-icon matListItemIcon>Extension Icon</mat-icon>
-        <div matListItemTitle>Levels</div>
-    </mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item routerLink="Subscriptions">
-        <mat-icon matListItemIcon>Extension Icon</mat-icon>
-        <div matListItemTitle>Subscriptions</div>
-    </mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item routerLink="ReopenLecture">
-        <mat-icon matListItemIcon>Extension Icon</mat-icon>
-        <div matListItemTitle>lec</div>
-    </mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item routerLink="Reviews">
-        <mat-icon matListItemIcon>Extension Icon</mat-icon>
-        <div matListItemTitle>Reviews</div>
-    </mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item routerLink="Instructional">
-        <mat-icon matListItemIcon>note</mat-icon>
-        <div matListItemTitle>lec</div>
-    </mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item routerLink="RescheduleExams">
-        <mat-icon matListItemIcon>my_library_books</mat-icon>
-        <div matListItemTitle>lec</div>
-    </mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item routerLink="Students">
-        <mat-icon matListItemIcon> my_library_add </mat-icon>
-        <div matListItemTitle>lec</div>
-    </mat-list-item>
-    <mat-divider></mat-divider>
-    <mat-list-item routerLink="test">
-        <mat-icon matListItemIcon> my_library_add </mat-icon>
-        <div matListItemTitle>test</div>
-    </mat-list-item>
+  <mat-list-item routerLink="lectures">
+    <mat-icon matListItemIcon>Extension Icon</mat-icon>
+    <div matListItemTitle>المحاضرات </div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+  <mat-list-item routerLink="levels">
+    <mat-icon matListItemIcon>Extension Icon</mat-icon>
+    <div matListItemTitle>المراحل</div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+
+
+  <mat-list-item routerLink="reopenLecture">
+    <mat-icon matListItemIcon>Extension Icon</mat-icon>
+    <div matListItemTitle>طلبات فتح المحاضرات</div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item routerLink="reviews">
+    <mat-icon matListItemIcon>Extension Icon</mat-icon>
+    <div matListItemTitle>المراجعات</div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+
+  <mat-list-item routerLink="subscriptions">
+    <mat-icon matListItemIcon>Extension Icon</mat-icon>
+    <div matListItemTitle>الاشتراكات</div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+
+
+  <mat-list-item routerLink="setting">
+    <mat-icon matListItemIcon slot="start">note</mat-icon>
+    <div matListItemTitle>الاعدادات</div>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item routerLink="test">
+    <mat-icon matListItemIcon> my_library_add </mat-icon>
+    <div matListItemTitle>test</div>
+  </mat-list-item>
 </mat-list>

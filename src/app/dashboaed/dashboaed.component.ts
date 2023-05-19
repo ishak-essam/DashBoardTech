@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { User } from '../models/User';
-import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-dashboaed',

@@ -24,7 +24,6 @@ import { environment } from 'src/environments/environment.development';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   error = '';
-
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
@@ -38,8 +37,6 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required],
     });
   }
-
-
   get email() {
     return this.loginForm.controls['email'].value;
   }
@@ -50,13 +47,12 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.invalid) {
       return;
     }
-
     this.authenticationService
       .login(this.loginForm.controls['email'].value, this.loginForm.controls['password'].value)
       .pipe(first())
       .subscribe({
         next: () => {
-          this.router.navigate(['test']);
+          this.router.navigate(['dashboard']);
         },
         error: (err: any) => {
           console.log(err)

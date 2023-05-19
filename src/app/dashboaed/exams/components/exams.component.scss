@@ -1,0 +1,29 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 300px;
+}
+
+.example-header {
+  min-height: 64px;
+  padding: 8px 24px 0;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 500px;
+}
+.mat-mdc-paginator-container {
+  display: flex;
+  align-items: center;
+  /* justify-content: flex-end; */
+  padding: 0 8px;
+  flex-wrap: wrap-reverse;
+  width: 100%;
+  direction: ltr !important;
+}

@@ -24,28 +24,22 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 @NgModule({
   declarations: [
     AppComponent,
-    // MainLayoutComponent,
-    NavbarComponent,
-    SidebarComponent,
     ReactiveComponent,
-    LoginComponent, MainLayoutComponent
+    LoginComponent,
   ],
   imports: [
     CommonModule,
+     BrowserModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatToolbarModule,
     MatIconModule,
-    MatToolbarModule,
     MatListModule,
     MatPaginatorModule,
     MatFormFieldModule,
     MatTableModule,
     HttpClientModule,
-    HttpClientModule,
     FormsModule,
-    BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule
   ],
@@ -54,10 +48,9 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatToolbarModule,
     MatIconModule,
-    MatSidenavModule,
-    MatListModule, RouterModule
+    MatListModule,
+    RouterModule,
   ],
   providers: [
     {

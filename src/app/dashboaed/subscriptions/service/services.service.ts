@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -11,16 +12,17 @@ export class ServicesService implements OnInit {
   constructor(private http: HttpClient) { }
   ngOnInit(): void {
   }
-  GetActiveSubscribtion(index: number = 20) {
+  GetActiveSubscribtion(index: number = 20): Observable<any> {
     return this.http.get(environment.BaseUrl + this.baseUrlSub + `Admin/GetActiveSubscribtion?size=${index}`)
   }
-  GetNotConfirmedSubscribtion(index: number = 20) {
+  GetNotConfirmedSubscribtion(index: number = 20): Observable<any> {
     return this.http.get(environment.BaseUrl + this.baseUrlSub + `Admin/GetNotConfirmedSubscribtion?size=${index}`)
   }
-  GetSubscribtionForStudentByStudentID(StudentID: number) {
+  GetSubscribtionForStudentByStudentID(StudentID: number): Observable<any> {
     return this.http.get(environment.BaseUrl + this.baseUrlSub + `Admin/GetSubscribtionForStudent/${StudentID}`)
   }
-  GetSubscribtionStudentme() {
+  GetSubscribtionStudentme(): Observable<any> {
     return this.http.get(environment.BaseUrl + this.baseUrlSub + `/Subscribtion/Student/me`)
   }
+
 }

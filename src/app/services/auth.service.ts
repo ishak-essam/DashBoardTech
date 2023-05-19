@@ -12,26 +12,34 @@ import { environment } from '../../environments/environment';
 export class AuthService {
   private userSubject: BehaviorSubject<User>;
   public user: Observable<User>;
-
   constructor(private http: HttpClient, private router: Router) {
-    this.userSubject = new BehaviorSubject<User>(
-      JSON.parse(localStorage.getItem('currentUser')!)
-    );
+    if (JSON.parse(localStorage.getItem('currentUser')!)) {
+      this.userSubject = new BehaviorSubject<User>(
+        JSON.parse(localStorage.getItem('currentUser')!) || { email: '', token: "" }
+      );
+    }
+    else {
+      this.userSubject = new BehaviorSubject<User>({
+        email: "",
+        token: ""
+      });
+    }
     this.user = this.userSubject.asObservable();
   }
-
   public get userValue(): User {
     return this.userSubject.value;
   }
-
   login(username: string, password: string) {
+
+
+    console.log(username)
     return this.http
       .post<any>(`${environment.BaseUrl}Auth/Login`, {
         "email": username,
         "password": password
       })
       .pipe(
-        map(( token ) => {
+        map((token) => {
           console.log(token)
           let user: User = {
             email: username,
@@ -39,6 +47,7 @@ export class AuthService {
           };
           localStorage.setItem('currentUser', JSON.stringify(user));
           this.userSubject.next(user);
+          this.userValue;
           return user;
         })
       );
@@ -46,7 +55,11 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('currentUser');
-    // this.userSubject.next(null);
+    this.userSubject.next({
+      email: "",
+      token: ""
+    });
     console.log(this.userSubject)
+    this.router.navigate(['/login']);
   }
 }

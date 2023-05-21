@@ -13,6 +13,6 @@ export class HomePageComponent {
   }
   logout() {
     this.service.logout()
-
+    localStorage.setItem("x", 'X');
   }
 }

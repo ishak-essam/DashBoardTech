@@ -8,6 +8,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class TokenInterceptorService implements HttpInterceptor {
   constructor(private authService: AuthService) { }
+  errors: any
   intercept(
     request: HttpRequest<any>,
     next: HttpHandler
@@ -25,8 +26,7 @@ export class TokenInterceptorService implements HttpInterceptor {
         if (err.status === 401) {
           this.authService.logout();
         }
-        const error = err || err.statusText;
-        console.log()
+        const error = err ;
         return throwError(error);
       })
     );

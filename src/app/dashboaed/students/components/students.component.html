@@ -3,7 +3,6 @@
   <div class="content">
 
     <table mat-table [dataSource]="dataSource" class="table">
-      displayedColumns = ['image', 'name', 'phone', 'parentPhone', 'schoolName', 'city'];
       <ng-container matColumnDef="image">
         <th mat-header-cell *matHeaderCellDef> الصورة </th>
         <td mat-cell *matCellDef="let rowObj">

@@ -20,10 +20,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TestComponent } from './test/test.component';
 import { MatSortModule } from '@angular/material/sort';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { MatButtonModule, MatIconButton } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import { MatIconModule } from '@angular/material/icon';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MainLayoutComponent } from '../main-layout/main-layout.component';
 import { SidebarComponent } from '../main-layout/sidebar/sidebar.component';
@@ -34,6 +34,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { RouterModule } from '@angular/router';
 import { SubjectsComponent } from './subjects/components/subjects/subjects.component';
 import { SettingsComponent } from './settings/components/settings/settings.component';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatDialogModule } from '@angular/material/dialog';
+import { BrowserModule } from '@angular/platform-browser';
+
 @NgModule({
   declarations: [
     DashboaedComponent,
@@ -55,34 +59,40 @@ import { SettingsComponent } from './settings/components/settings/settings.compo
     SettingsComponent
   ],
   imports: [
-    CommonModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    RouterModule,
+    
     DashboaedRoutingModule,
     MatTableModule,
-    HttpClientModule,
     MatCheckboxModule,
     MatPaginatorModule,
     ReactiveFormsModule,
     MatInputModule,
     MatSortModule,
-    MatFormFieldModule,
-    FormsModule,
     MatButtonModule,
     MatIconModule,
     MatProgressSpinnerModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatToolbarModule,
-    MatIconModule,
-    MatToolbarModule,
     MatListModule,
-    RouterModule
+    MatExpansionModule,
+    MatDialogModule,
+    MatFormFieldModule,
   ],
-  exports: [MatToolbarModule,
+  exports: [
+    MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
     MatListModule,
-    MatIconModule,
-    MatListModule,
-    RouterModule,],
+    MatSortModule,
+    RouterModule,
+    MatExpansionModule,
+    MatDialogModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatLabel,
+    MatIcon
+  ],
 })
 export class DashboaedModule { }

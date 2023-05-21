@@ -1,21 +1,13 @@
-import { PasswordMatch } from './../reactive/PasswordMatch/PasswordMatch';
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-// import { FormBuilder, FormGroup, Validators , FormControl} from '@angular/forms';
+import { Router,  } from '@angular/router';
 import { first } from 'rxjs/operators';
 import {
-  AbstractControl,
-  FormArray,
   FormBuilder,
-  FormControl,
   FormGroup,
-  ValidationErrors,
-  ValidatorFn,
   Validators,
 } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from 'src/environments/environment.development';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -23,26 +15,28 @@ import { environment } from 'src/environments/environment.development';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
-  error = '';
+  error: any;
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private authenticationService: AuthService,
-    private http: HttpClient
   ) { }
 
   ngOnInit() {
+    // window.location.reload();
     this.loginForm = this.formBuilder.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
     });
+    this.authenticationService.logout()
   }
   get email() {
     return this.loginForm.controls['email'].value;
   }
   get password() {
-    return this.loginForm.controls['email'].value;
+    return this.loginForm.controls['password'].value;
   }
+
   onSubmit() {
     if (this.loginForm.invalid) {
       return;
@@ -56,12 +50,10 @@ export class LoginComponent implements OnInit {
         },
         error: (err: any) => {
           console.log(err)
-          this.error = err;
+          console.log(err.error.errors);
+          this.error = err.error;
         },
       });
   }
-
-  logout() {
-    this.authenticationService.logout()
-  }
+  // This function is called when the user clicks on the submit buttoasdzxn.
 }

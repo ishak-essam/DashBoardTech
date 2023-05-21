@@ -8,9 +8,6 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-// import { MainLayoutComponent } from './main-layout/main-layout.component';
-import { NavbarComponent } from './main-layout/navbar/navbar.component';
-import { SidebarComponent } from './main-layout/sidebar/sidebar.component';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { RouterModule } from '@angular/router';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -20,7 +17,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ReactiveComponent } from './reactive/reactive.component';
 import { LoginComponent } from './login/login.component';
 import { TokenInterceptorService } from './interceptors/token-interceptor.service';
-import { MainLayoutComponent } from './main-layout/main-layout.component';
+import { CookieService } from 'ngx-cookie-service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +26,7 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
   ],
   imports: [
     CommonModule,
-     BrowserModule,
+    BrowserModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatSidenavModule,
@@ -41,7 +38,7 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   exports: [
     MatToolbarModule,
@@ -50,6 +47,7 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
     MatListModule,
     MatIconModule,
     MatListModule,
+    MatFormFieldModule,
     RouterModule,
   ],
   providers: [
@@ -58,6 +56,7 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
       useClass: TokenInterceptorService,
       multi: true,
     },
+    CookieService
   ],
   bootstrap: [AppComponent],
 })

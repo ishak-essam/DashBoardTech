@@ -9,6 +9,7 @@ export interface Section {
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent {
+  panelOpenState = false;
  folders: Section[] = [
     {
       name: 'Photos',
